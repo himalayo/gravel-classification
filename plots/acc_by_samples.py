@@ -3,6 +3,7 @@
 import pathlib
 import json
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 import sys
 
@@ -112,6 +113,8 @@ def dict_fn(d):
 if __name__ == '__main__':
         if len(sys.argv) < 2:
                 exit()
+        matplotlib.rcParams.update({'font.size': 22})
+        matplotlib.rc('axes',linewidth=4)
 
         parse = lambda filename: filename.split('.')[0].split('_')[0]
         alias = {
