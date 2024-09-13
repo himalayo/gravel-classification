@@ -73,7 +73,7 @@ class EntryList:
         for entry in self.entries:
             plt.scatter(list(map(xs, entry())), list(map(ys, entry())), label=entry.name if label else None)
 
-    def plot(self,xs, ys,criteria=_identity, label=False):
+    def plot(self,xs, ys,criteria=_identity, label=False,plt=plt):
         for entry in filter(criteria,self.entries):
             unordered_xs = list(map(xs, entry()))
             unordered_ys = list(map(ys, entry()))
@@ -133,9 +133,10 @@ if __name__ == '__main__':
         xs = lambda x: train_count[x.name]
         ys = lambda y: y.top_1*100
 
+        fig, ax = plt.subplots(figsize=(9,8),gridspec_kw={'left':0.23,'bottom':0.25,'top':0.95,})
         criteria = lambda raw_cat: raw_cat['label'] != 'overall'
         entry_list = EntryList.from_json_list(sys.argv[2:], name_parser = name_fn, criteria = criteria)
-        entry_list.plot(xs,ys, criteria=lambda entity: entity.name==alias['convnexttiny'], label=False)
+        entry_list.plot(xs,ys, criteria=lambda entity: entity.name==alias['convnexttiny'], label=False, plt=ax)
         entry_list.scatter(xs,ys,label=True)
 
         plt.legend()
