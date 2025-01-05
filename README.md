@@ -23,5 +23,21 @@ It will then create a convnexttiny_improved.keras file, which contains the model
 python3 test.py convnexttiny_improved.keras
 ```
 
+
 This will create the results of such tests, where the "epitaph" variable is the confusion matrix.
 We've also included all results from our models in the "results" subdirectory of this repository, where it can be used for further analysis if necessary.
+
+These results can then be visualized by the scripts provided in the "plots" subdirectory.
+For instance, to plot the confusion matrix present in the results/convnexttiny_improved.json file, we must run:
+```
+cd plots
+python3 epitaph.py subdirs.json ../results/convnexttiny_improved.json
+```
+
+Similarly, to plot the training logs for all the models, we must do:
+```
+cd plots
+python3 train_res.py ../results
+```
+
+Note that all the plots have already been provided, in PDF format, for future comparison.
