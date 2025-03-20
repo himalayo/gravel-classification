@@ -2,6 +2,8 @@
 This repository presents a series of scripts that aid in the reproduction of well-behaved models for classifying gravel on road surfaces, but also present a high accuracy in a variety of other road surfaces.
 We've split the training in each stage and each model to a single script run, as to aid in the monitoring of the results and allow the adjustment of the parameters in case of inconsistent results or any other potential problems.
 
+For more information on the results of our procedures, consider reading our paper: [Advanced driving assistance integration in electric motorcycles: road surface classification with a focus on gravel detection using deep learning](https://doi.org/10.3389/frai.2025.1520557)
+
 ## Requirements
 It is necessary to install Python 3, TensorFlow, Numpy, Keras 3, and sci-kit learn.
 The dataset is provided [here](https://figshare.com/ndownloader/files/36625041). Make sure to place the data in a subdirectory of the project root called "rscd".
